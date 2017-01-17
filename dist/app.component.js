@@ -8,14 +8,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
+        this.message = "Hello Prosper!";
+        this.users = [
+            { id: 5, name: "Prosper", username: "unicodeveloper" },
+            { id: 6, name: "Goodness", username: "coleslawson" },
+            { id: 7, name: "Excellent", username: "otemz" },
+        ];
     }
+    AppComponent.prototype.selectUser = function (user) {
+        this.activeUser = user;
+        console.log(this.activeUser);
+    };
+    AppComponent.prototype.onUserCreated = function (event) {
+        this.users.push(event.user);
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n        <div class=\"jumbotron\">\n            <h2> Welcome to our App! </h2>\n        </div>\n    ",
-        styles: ["\n        .jumbotron {\n            box-shadow: 0 2px 0 rgba(0,0,0, 0.2);\n        }\n    "]
+        templateUrl: './app/app.component.html',
+        styleUrls: ['./app/app.component.css']
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
